@@ -1,0 +1,401 @@
+<dialog id="num01-maquette">
+    <a href="#num01" class="dialog__close"></a>
+    <div class="dialog__content">
+        <h3>Résultat final</h3>
+        <video src="assets/images/ex3/num1.mp4" autoplay muted loop></video>
+        <p class="close">Cliquez à l'extérieur pour fermer la fenêtre</p>
+    </div>
+</dialog>
+<dialog id="num01-explication">
+    <a href="#num01" class="dialog__close"></a>
+    <div class="dialog__content">
+        <h3>CONSIGNES</h3>
+        <p>
+            Suivez les étapes suivantes afin de faire apparaitre des visages connus 🤡 dans la zone délimitée lors d'un clic sur le bouton pour ajouter une
+            photo.
+        </p>
+        <h4>
+            Vous aurez besoin de l'information suivante dans les étapes qui suivent :
+            <strong>49 images différentes</strong>
+        </h4>
+        <h3>Algorithme (pour comprendre la logique)</h3>
+        <p>
+            Lors d'un clic sur le bouton, nous voulons ajouter une nouvelle photo dans un
+            <em>div</em>
+            dans le HTML.
+        </p>
+        <ol>
+            <li>
+                Clique sur le bouton
+                <ul>
+                    <li>Ajouter une classe préfixé pour le cibler</li>
+                </ul>
+            </li>
+            <li>
+                Ajouter une image
+                <ul>
+                    <li>
+                        Créer un élément HTML de type
+                        <em>img</em>
+                    </li>
+                    <li>Elle doit se positionner aléatoirement</li>
+                    <li>
+                        Elle doit avoir une classe css
+                        <em>.student-photo</em>
+                    </li>
+                    <li>L'image doit s'ajouter dans un conteneur qui aura une classe préfixée pour le cibler</li>
+                </ul>
+            </li>
+        </ol>
+
+        <h4>
+            Nous travaillons dans le fichier
+            <em>Main.js</em>
+            pour toutes les étapes de cet exercice.
+        </h4>
+
+        <h3>Étape 1 - La base</h3>
+        <p>
+            Dans cette étape, nous allons créer la classe
+            <em>Main</em>
+            et ses méthodes.
+        </p>
+        <ul>
+            <li>Ouvrez le fichier Main.js</li>
+            <li>
+                Créer une classe
+                <strong>Main</strong>
+                avec sa
+                <u>méthode par défaut</u>
+                et une méthode
+                <strong>init</strong>
+            </li>
+            <li>
+                Assurez-vous que la méthode
+                <em>init</em>
+                soit appelé et qu'elle affiche un
+                <em>console.log('Étape 1 terminé')</em>
+                .
+            </li>
+        </ul>
+        <p>
+            Si vous voyez dans votre fenêtre de console, le message
+            <u>Étape 1 terminée</u>
+            , vous avez complété l'étape 1. 😎
+        </p>
+
+        <h3>Étape 2 - La classe Photo</h3>
+        <p>
+            Pour rester dans l'esprit de la programmation orienté objet (POO), créons une deuxième classe (un plan), qui fera la gestion d'ajout d'une nouvelle
+            image dans le HTML. Dans cette étape, vous allez créer une image avec le visage de Pier-Louc Gagner (oui on le sait...) qui s'affichera dans le coin
+            en haut à gauche de la page.
+        </p>
+        <ul>
+            <li>
+                Sous l'
+                <u>instanciation</u>
+                de votre classe
+                <em>Main</em>
+                , ajouter une nouvelle classe
+                <strong>Photo</strong>
+                (n'oubliez pas la méthode par défaut)
+            </li>
+            <li>
+                Créer une nouvelle
+                <u>instance</u>
+                de votre classe
+                <em>Photo</em>
+                sous cette dernière.
+            </li>
+            <li>
+                Ajouter un
+                <em>console.log('Une nouvelle image')</em>
+                dans le constructeur de votre classe
+                <em>Photo</em>
+            </li>
+        </ul>
+        <p>⚠️ Si vous ne voyez pas votre console, retournez dans vos notes car il vous manque quelque chose.</p>
+        <ul>
+            <li>Supprimer votre console.log</li>
+            <li>
+                Toujours dans le constructeur, créer une variable nommée
+                <strong>image</strong>
+                (Avec const ou let ? 🤔)
+                <ul>
+                    <li>
+                        Créer un nouvel élément HTML de type
+                        <em>img</em>
+                    </li>
+                    <li>Changer la source de l'image pour "assets/images/ex2/48.jpg"</li>
+                    <li>
+                        Ajouter la classe css
+                        <strong>student-photo</strong>
+                        sur l'image (Le CSS est déjà fait et met l'élément en positionnement absolu.
+                    </li>
+                </ul>
+            </li>
+            <li>Ajouter cette nouvelle image directement dans le body</li>
+        </ul>
+        <p>😍 Vous devriez maintenant avoir une image qui s'affiche dans le coin en haut de votre site web. Vous avez aussi terminé cette étape.</p>
+
+        <h3>Étape 3 - Ajouter l'image lors du click sur le bouton</h3>
+        <p>
+            Maintenant, faisons en sorte qu'une image se créé à chaque fois qu'on clique sur le bouton
+            <em>Ajouter une photo</em>
+            .
+        </p>
+        <p>
+            Le bouton de la page n'ayant pas de lien avec la classe
+            <em>Photo</em>
+            , il faudra ajouter un écouteur pour ce dernier. Et lorsque ce dernier sera cliqué, nous créerons à la volée une nouvelle instance de la classe
+            <em>Photo</em>
+            et cette dernière ajoutera la photo dans le HTML pour nous.
+        </p>
+        <ul>
+            <li>
+                Supprimer l'instanciation de
+                <em>Photo</em>
+                , que vous avez fait à l'étape précédente
+            </li>
+            <li>
+                Dans la classe
+                <em>Main</em>
+                :
+                <ul>
+                    <li>
+                        Créer une méthode
+                        <strong>addPhoto</strong>
+                        <ul>
+                            <li>
+                                Créer une instance de la classe
+                                <em>Photo</em>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        Dans la méthode
+                        <em>init</em>
+                        :
+                        <ul>
+                            <li>
+                                Créer une variable
+                                <strong>button</strong>
+                                (Avec const ou let ? 🤔)
+                                <ul>
+                                    <li>
+                                        Sélectionner l'élément HTML qui a la classe
+                                        <strong>js-button</strong>
+                                    </li>
+                                    <li>
+                                        Ajouter un événement click sur le bouton qui, doit appeller la méthode
+                                        <strong>addPhoto</strong>
+                                        <ul>
+                                            <li>
+                                                ⚠️ Si vous avez une erreur dans votre console, n'oubliez pas l'exception pour ajouter un évènement pour qu'il
+                                                conserve son contexte!
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <p>😍 Vous devriez maintenant avoir une image qui s'ajoute lorsque vous cliquez sur le bouton</p>
+        <p>
+            <em>Ça serait plus intéressant que l'image soit aléatoire. On est un peu tanné de voir PierLouc.</em>
+            😏
+        </p>
+        <h4>Étape 4 - Une image aléatoire</h4>
+        <p>Faisons en sorte que ce soit une image aléatoire qui soit choisie lors de la création de la nouvelle image.</p>
+
+        <p>Il y a beaucoup de détails techniques à expliquer :</p>
+
+        <p>
+            <strong>En premier</strong>
+            , nous allons créer une variable qui va contenir le nombre d'image total. Nous la mettrons dans le
+            <strong>Main</strong>
+            parce qu'encore une fois, elle n'a aucun lien avec la classe Photo (qui sert seulement a créer une image).
+        </p>
+        <p>
+            <strong>Ensuite</strong>
+            , nous allons choisir une valeur aléatoire et créer un chemin (path) vers l'image. Pour ensuite, la passer en paramètre lors de l'instanciation de
+            notre image.
+        </p>
+        <ul>
+            <li>
+                Dans la classe
+                <em>Main</em>
+                <ul>
+                    <li>
+                        Dans le `constructeur`, créer une variable globale qui contiendra le nombre total d'images. Nommez-la
+                        <strong>totalPhotos</strong>
+                        et lui donner la valeur
+                        <strong>49</strong>
+                    </li>
+                    <li>
+                        Dans la méthode
+                        <strong>addPhoto()</strong>
+                        :
+                        <ul>
+                            <li>
+                                Créer une variable
+                                <strong>photoId</strong>
+                                <ul>
+                                    <li>
+                                        Faites en sorte d'avoir une valeur
+                                        <em>random</em>
+                                        entre
+                                        <strong>0</strong>
+                                        et le nombre total d'images, soit
+                                        <strong>totalPhotos</strong>
+                                        .
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                Créer une variable
+                                <strong>path</strong>
+                                :
+                                <ul>
+                                    <li>
+                                        À l'aide d'un
+                                        <em>Template string</em>
+                                        , créer une chaine de caractère qui donnera un résultat similaire à
+                                        <strong>assets/images/ex1/photoId.jpg</strong>
+                                        (photoId devrait être la valeur de la variable
+                                        <em>photoId</em>
+                                        . )
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                Il faut maintenant passer la variable
+                                <em>path</em>
+                                en paramètre à notre instance
+                                <strong>Photo</strong>
+                            </li>
+                            <li>
+                                Passer le paramètre lors de l'instanciation de votre nouvelle image (
+                                <strong>new Photo(path)</strong>
+                                )
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                Dans la classe
+                <strong>Photo</strong>
+                <p>
+                    Nous devons récupérer le paramètre
+                    <em>path</em>
+                    que nous avons passé dans notre méthode
+                    <em>addPhoto</em>
+                    lors de l'instanciation. Nous devons maintenant la récupérer.
+                </p>
+            </li>
+            <li>
+                Ajouter dans le
+                <em>constructeur</em>
+                de la classe
+                <em>Photo</em>
+                un paramètre
+                <strong>path</strong>
+                <ul>
+                    <li>constructor(path)</li>
+                </ul>
+            </li>
+            <li>
+                Remplacer la source de l'image
+                <strong>img.src</strong>
+                par le contenu du paramètre
+                <em>path</em>
+                .
+            </li>
+        </ul>
+        <p>😎 Vous devriez maintenant avoir une image aléatoire qui apparait lorsque vous cliquez sur le bouton.</p>
+        <h3>Étape 5 - L'ajouter dans une contenant</h3>
+        <p>Nous allons maintenant faire ne sorte que l'image s'ajoute dans un conteneur (div) de votre structure HTML et non dans le body</p>
+        <ul>
+            <li>
+                Au début du
+                <em>constructeur</em>
+                de votre classe
+                <em>Photo</em>
+                <ul>
+                    <li>
+                        Créer une variable
+                        <strong>container</strong>
+                        <ul>
+                            <li>
+                                Sélectionner l'élément HTML qui a la classe
+                                <strong>js-container</strong>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        Modifier votre appendChild pour que l'image s'ajoute dans votre variable
+                        <strong>container</strong>
+                        et pas le
+                        <em>body</em>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <h3>Étape 6 (et dernière 😅) - Déplacer les images de manière aléatoire</h3>
+        <p>
+            Les images sont toutes superposées, plaçons les de façon alératoire plutôt. Nous allons travailler dans la classe
+            <strong>Photo</strong>
+            parce que la position de l'élément doit être propre à chaque image.
+        </p>
+        <ul>
+            <li>
+                Dans le
+                <em>init</em>
+                de la classe
+                <strong>Photo</strong>
+                , tout juste
+                <u>avant</u>
+                que vous n'ajoutiez l'élément au container :
+                <ul>
+                    <li>
+                        Créer une variable nommée
+                        <strong>posX</strong>
+                        <ul>
+                            <li>
+                                Donner lui une valeur aléatoire
+                                <strong>entre 0 et 100</strong>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        Répéter le point précédent pour créer une variable nommée
+                        <strong>posY</strong>
+                    </li>
+                    <li>
+                        Ajuster les styles css
+                        <strong>left</strong>
+                        et
+                        <strong>top</strong>
+                        de votre image pour y ajouter les valeur posX / posY en %
+                        <ul>
+                            <li>
+                                Indice: Ça implique des
+                                <strong>Template String</strong>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <p>
+            Vous devriez maintenant avoir une nouvelle image aléatoire qui se positionne aléatoirement dans le div
+            <em>js-container</em>
+            .
+        </p>
+        <h3>Bravo! Vous avez complétez le lab ! 💪</h3>
+    </div>
+</dialog>
